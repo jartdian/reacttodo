@@ -39,6 +39,9 @@ export default class TodoList extends React.Component {
             todo={todo}
           />
         ))}
+        <div>
+          Todos Left: {this.state.todos.filter(todo => !todo.complete).length}
+        </div>
       </div>
     );
   }
