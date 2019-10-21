@@ -1,15 +1,17 @@
 import React from "react";
+import { ButtonX, TodoContainer, Todo } from "./TodoSC";
 
 export default props => (
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <div
+  <TodoContainer>
+    <Todo
       style={{
-        textDecoration: props.todo.complete ? "line-through" : ""
+        textDecoration: props.todo.complete ? "line-through" : "",
+        borderBottom: props.todo.complete ? "none" : ""
       }}
       onClick={props.toggleComplete}
     >
       {props.todo.text}
-    </div>
-    <button onClick={props.onDelete}>x</button>
-  </div>
+    </Todo>
+    <ButtonX onClick={props.onDelete}>&#x2718;</ButtonX>
+  </TodoContainer>
 );

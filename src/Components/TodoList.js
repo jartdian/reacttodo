@@ -1,7 +1,15 @@
 import React from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import { Title, Wrapper, Button } from "./TodoSC";
+import {
+  Title,
+  Wrapper,
+  Button,
+  Form,
+  InnerDiv,
+  TodosLeft,
+  ButtonAlert
+} from "./TodoSC";
 
 export default class TodoList extends React.Component {
   state = {
@@ -63,7 +71,7 @@ export default class TodoList extends React.Component {
         <Title>
           <h1>Todo App</h1>
         </Title>
-        <div>
+        <Form>
           <TodoForm onSubmit={this.addTodo} />
           {todos.map(todo => (
             <Todo
@@ -73,10 +81,10 @@ export default class TodoList extends React.Component {
               onDelete={() => this.handleDeleteTodo(todo.id)}
             />
           ))}
-          <div>
+          <TodosLeft>
             Todos Left: {this.state.todos.filter(todo => !todo.complete).length}
-          </div>
-          <div>
+          </TodosLeft>
+          <InnerDiv>
             <Button primary onClick={() => this.updateTodoToShow("all")}>
               All
             </Button>
@@ -84,17 +92,17 @@ export default class TodoList extends React.Component {
               Active
             </Button>
             <Button primary onClick={() => this.updateTodoToShow("complete")}>
-              Complete
+              Completed
             </Button>
             {this.state.todos.some(todo => todo.complete) ? (
               <div>
-                <button onClick={this.removeAllTodosThatAreComplete}>
+                <ButtonAlert alert onClick={this.removeAllTodosThatAreComplete}>
                   Delete Completed
-                </button>
+                </ButtonAlert>
               </div>
             ) : null}
-          </div>
-        </div>
+          </InnerDiv>
+        </Form>
       </Wrapper>
     );
   }
