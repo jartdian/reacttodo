@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import shortid from "shortid";
+import { Button } from "./TodoSC";
 
 export default class TodoForm extends Component {
   state = {
@@ -33,7 +34,7 @@ export default class TodoForm extends Component {
           onChange={this.handleChange}
           placeholder="todo..."
         />
-        <button onClick={this.handleSubmit}>Add Todo</button>
+        <Button onClick={this.handleSubmit}>Add Todo</Button>
       </form>
     );
   }
