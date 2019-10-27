@@ -117,7 +117,7 @@ export const Todo = styled.div`
   border-bottom-style: dashed;
   border-bottom-color: palevioletred;
   padding: 0;
-  @media (max-width: 768px) {
+  @media (max-width: 320px) {
     margin-left: auto;
   }
 `;
