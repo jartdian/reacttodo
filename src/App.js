@@ -3,7 +3,7 @@ import TodoList from "./Components/TodoList";
 
 export default () => {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: "papayawhip" }}>
       <TodoList />
     </div>
   );

@@ -69,7 +69,7 @@ export default class TodoList extends React.Component {
     return (
       <Wrapper>
         <Title>
-          <h1>Todo App</h1>
+          <div style={{ fontSize: "1.5em" }}>Todo App</div>
         </Title>
         <Form>
           <TodoForm onSubmit={this.addTodo} />
@@ -91,7 +91,11 @@ export default class TodoList extends React.Component {
             <Button primary onClick={() => this.updateTodoToShow("active")}>
               Active
             </Button>
-            <Button primary onClick={() => this.updateTodoToShow("complete")}>
+            <Button
+              className="Completed"
+              primary
+              onClick={() => this.updateTodoToShow("complete")}
+            >
               Completed
             </Button>
             {this.state.todos.some(todo => todo.complete) ? (

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import shortid from "shortid";
-import { ButtonAdd, Form } from "./TodoSC";
+import { ButtonAdd, Form, Input } from "./TodoSC";
 
 export default class TodoForm extends Component {
   state = {
@@ -21,21 +21,25 @@ export default class TodoForm extends Component {
       complete: false
     });
     this.setState({
-      text: ""
+      text: "",
+      focused: false
     });
+  };
+
+  onFocus = () => {
+    this.setState({ focused: true });
   };
 
   render() {
     return (
       <Form>
         <form onSubmit={this.handleSubmit}>
-          <input
-            editable={false}
-            style={{ border: "none", bottomBorder: "2px solid black" }}
+          <Input
+            onFocus={this.onFocus}
             name="text"
             value={this.state.text}
             onChange={this.handleChange}
-            placeholder="todo..."
+            placeholder="write a todo..."
           />
           <ButtonAdd onClick={this.handleSubmit}>Add Todo</ButtonAdd>
         </form>
